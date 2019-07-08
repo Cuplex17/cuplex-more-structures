@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "morestructures",
+  "version": "${version}",
+
+  "name": "More Structures",
+  "description": "This mod adds more structures to your world.",
+  "authors": [
+    "Cuplex"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/cuplexs-more-structures",
+    "sources": "https://github.com/Cuplex17/cuplex-more-structures"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.cuplex.morestructures.MoreStructures"
+    ]
+  },
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
