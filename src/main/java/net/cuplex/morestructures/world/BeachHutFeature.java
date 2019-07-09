@@ -14,9 +14,9 @@ import net.minecraft.world.gen.feature.StructureFeature;
 
 import java.util.Random;
 
-public class WanderingTraderShipFeature extends AbstractTempleFeature<DefaultFeatureConfig>
+public class BeachHutFeature extends AbstractTempleFeature<DefaultFeatureConfig>
 {
-    public WanderingTraderShipFeature()
+    public BeachHutFeature()
     {
         super(DefaultFeatureConfig::deserialize);
     }
@@ -28,15 +28,15 @@ public class WanderingTraderShipFeature extends AbstractTempleFeature<DefaultFea
     }
 
     @Override
-    public StructureStartFactory getStructureStartFactory()
+    public StructureFeature.StructureStartFactory getStructureStartFactory()
     {
-        return WanderingTraderShipStart::new;
+        return BeachHutFeature.BeachHutStart::new;
     }
 
     @Override
     public String getName()
     {
-        return "wandering_trader_ship";
+        return "beach_hut";
     }
 
     public int getRadius()
@@ -50,9 +50,9 @@ public class WanderingTraderShipFeature extends AbstractTempleFeature<DefaultFea
         return true;
     }
 
-    public static class WanderingTraderShipStart extends StructureStart
+    public static class BeachHutStart extends StructureStart
     {
-        public WanderingTraderShipStart(StructureFeature<?> structureFeature_1, int int_1, int int_2, Biome biome_1, MutableIntBoundingBox mutableIntBoundingBox_1, int int_3, long long_1)
+        public BeachHutStart(StructureFeature<?> structureFeature_1, int int_1, int int_2, Biome biome_1, MutableIntBoundingBox mutableIntBoundingBox_1, int int_3, long long_1)
         {
             super(structureFeature_1, int_1, int_2, biome_1, mutableIntBoundingBox_1, int_3, long_1);
         }
@@ -60,14 +60,14 @@ public class WanderingTraderShipFeature extends AbstractTempleFeature<DefaultFea
         @Override
         public void initialize(ChunkGenerator<?> chunkGenerator, StructureManager structureManager, int chunkX, int chunkZ, Biome biome)
         {
-            DefaultFeatureConfig defaultFeatureConfig = chunkGenerator.getStructureConfig(biome, MoreStructures.WANDERING_TRADER_SHIP_FEATURE);
+            DefaultFeatureConfig defaultFeatureConfig = chunkGenerator.getStructureConfig(biome, MoreStructures.BEACH_HUT_FEATURE);
 
             int x = chunkX * 16;
             int z = chunkZ * 16;
 
             BlockPos startingPos = new BlockPos(x, 0, z);
             BlockRotation rotation = BlockRotation.values()[this.random.nextInt(BlockRotation.values().length)];
-            WanderingTraderShipGenerator.addParts(structureManager, startingPos, rotation, this.children, this.random, defaultFeatureConfig);
+            BeachHutGenerator.addParts(structureManager, startingPos, rotation, this.children, this.random, defaultFeatureConfig);
             this.setBoundingBoxFromChildren();;
         }
     }
